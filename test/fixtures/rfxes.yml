@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  SN: MyString
+  begin_dt: 2015-08-10
+  end_dt: 2015-08-10
+  sourcing_org_id: 1
+
+two:
+  SN: MyString
+  begin_dt: 2015-08-10
+  end_dt: 2015-08-10
+  sourcing_org_id: 1

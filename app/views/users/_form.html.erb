@@ -1,0 +1,16 @@
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, label: "登录名" %>
+    <%= f.input :display_name, label: "姓名" %>
+    <%= f.input :email, label: "邮箱" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<br>
+

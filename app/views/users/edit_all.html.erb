@@ -1,0 +1,26 @@
+<h1>用户 - 更改信息</h1>
+<%= form_for :user, url: users_update_all_path, :html => { :method => :put } do %>
+  <table class="table table-striped table-bordered table-hover">
+    <tr>
+      <th>登录名</th>
+      <th>姓名</th>
+      <th>邮箱</th>
+    </tr>
+    <% @users.each do |user| %>
+      <%= fields_for "user[]", user do |f| %>
+        <tr>
+<div class="form-inputs">
+          <td><%= f.text_field :name %></td>
+          <td><%= f.text_field :display_name %></td>
+          <td><%= f.email_field :email %></td>
+</div>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+
+  <div class="actions">
+    <%= submit_tag "保存修改", class: "btn btn-default" %>
+    <%= link_to '用户列表', users_path, class: "btn btn-default" %>
+  </div>
+<% end %>

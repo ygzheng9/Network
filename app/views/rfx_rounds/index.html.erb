@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>询价轮次</h1>
+<%= form_tag rfx_rounds_all_edit_path, method: :get do %>
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th></th>
+      <th>询价单号</th>
+      <th>开始时间</th>
+      <th>结束时间</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rfx_rounds.each do |rfx_round| %>
+      <tr>
+        <td><%= check_box_tag "rfx_round_ids[]", rfx_round.id %></td>
+        <td><%= rfx_round.rfx.SN %></td>
+        <td><%= rfx_round.start_dt %></td>
+        <td><%= rfx_round.end_dt %></td>
+        <td><%= link_to '更改', edit_rfx_rfx_round_path(@rfx, rfx_round) %></td>
+        <td><%= link_to '删除', [@rfx, rfx_round], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= submit_tag "批量修改", class: "btn btn-default" %>
+
+<% end %>
+<br>
+
+<%= link_to '新建轮次', new_rfx_rfx_round_path %>
+<%= link_to '询价单列表', rfxes_path %>

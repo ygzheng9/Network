@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @sourcing_org.code %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @sourcing_org.desc %>
+</p>
+
+<%= link_to 'Edit', edit_sourcing_org_path(@sourcing_org) %> |
+<%= link_to 'Back', sourcing_orgs_path %>

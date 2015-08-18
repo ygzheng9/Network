@@ -1,0 +1,24 @@
+<%= simple_form_for([@rfx, @rfx_round]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :rfx, label: "询价单号", label_method: :SN, disabled: true %>
+
+    <%= f.input :start_dt, as: :string, label: "开始日期", input_html: { readonly: true, class: :datepicker } %>
+    <%= f.input :end_dt, as: :string, label: "结束日期", input_html: { readonly: true, class: :datepicker } %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+  $('.datepicker').datepicker({
+    format: "yyyy/mm/dd",
+    autoclose: true,
+    todayHighlight: true
+});
+</script>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rfx_id: MyString
+  sourcing_type_id: 1
+  is_self: 1
+  is_invite: 1
+
+two:
+  rfx_id: MyString
+  sourcing_type_id: 1
+  is_self: 1
+  is_invite: 1

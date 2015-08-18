@@ -1,0 +1,25 @@
+<%= simple_form_for([@rfx, @rfx_item]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :rfx, label: "询价单号", label_method: :SN, disabled: true %>
+    <%= f.association :plant, label: "电厂", prompt: "请选择电厂", label_method: :full_name, value_method: :id, include_blank: false %>
+    <%= f.association :material, label: "物资", prompt: "请选择物资", label_method: :full_name, value_method: :id, include_blank: false  %>
+    <%= f.input :quantity %>
+    <%= f.input :required_dt, as: :string, label: "要求到货日期", input_html: { readonly: true, class: :datepicker } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<br>
+
+<script type="text/javascript">
+  $('.datepicker').datepicker({
+    format: "yyyy/mm/dd",
+    autoclose: true,
+    todayHighlight: true
+});
+</script>

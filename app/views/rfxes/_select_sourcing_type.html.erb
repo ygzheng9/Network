@@ -1,0 +1,5 @@
+<h1>确定寻源方式 <small><%= rfx.SN %> <small><%= link_to "返回", rfxes_path %></small> </small> </h1>
+
+<%= react_component 'SourcingType', { rfx_sourcing_type: rfx_sourcing_type,
+    rfx: rfx, sourcing_types: sourcing_types, all_vendors: all_vendors,
+    invited_vendors: invited_vendors } %>

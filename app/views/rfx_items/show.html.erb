@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>询价单号</strong>
+  <%= @rfx_item.rfx.SN %>
+</p>
+
+<p>
+  <strong>采购单位</strong>
+  <%= @rfx_item.plant.full_name %>
+</p>
+
+<p>
+  <strong>物资</strong>
+  <%= @rfx_item.material.full_name %>
+</p>
+
+<p>
+  <strong>数量</strong>
+  <%= @rfx_item.quantity %>
+</p>
+
+<p>
+  <strong>要求到货时间</strong>
+  <%= @rfx_item.required_dt %>
+</p>
+
+<%= link_to '更改', edit_rfx_rfx_item_path(@rfx, @rfx_item) %> |
+<%= link_to '询价单', rfx_rfx_items_path(@rfx) %>

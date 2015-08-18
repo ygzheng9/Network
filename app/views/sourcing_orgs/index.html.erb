@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sourcing Orgs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Desc</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sourcing_orgs.each do |sourcing_org| %>
+      <tr>
+        <td><%= sourcing_org.code %></td>
+        <td><%= sourcing_org.desc %></td>
+        <td><%= link_to 'Show', sourcing_org %></td>
+        <td><%= link_to 'Edit', edit_sourcing_org_path(sourcing_org) %></td>
+        <td><%= link_to 'Destroy', sourcing_org, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sourcing org', new_sourcing_org_path %>

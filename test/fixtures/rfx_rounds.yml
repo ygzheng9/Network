@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rfx_id: 1
+  start_dt: MyString
+  end_dt: 2015-08-11
+
+two:
+  rfx_id: 1
+  start_dt: MyString
+  end_dt: 2015-08-11

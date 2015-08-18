@@ -1,0 +1,35 @@
+<h1>询价批次 - 更改信息</h1>
+<%= form_for :rfx_round, url: rfx_rounds_all_path, :html => { :method => :put } do %>
+  <table class="table table-striped table-bordered table-hover">
+    <tr>
+      <th>询价单号</th>
+      <th>开始时间</th>
+      <th>结束时间</th>
+    </tr>
+    <% @rfx_rounds.each do |rnd| %>
+      <%= fields_for "rfx_round[]", rnd do |f| %>
+        <tr>
+<div class="form-inputs">
+          <td><%= @rfx.SN %> </td>
+          <td><%= f.text_field :start_dt, as: :string, readonly: true, class: :datepicker %></td>
+          <td><%= f.text_field :end_dt, as: :string, readonly: true, class: :datepicker %></td>
+</div>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+
+  <div class="actions">
+    <%= submit_tag "保存修改", class: "btn btn-default" %>
+    <%= link_to '询价批次', rfx_rfx_rounds_path(@rfx), class: "btn btn-default" %>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+  $('.datepicker').datepicker({
+    format: "yyyy/mm/dd",
+    autoclose: true,
+    todayHighlight: true
+});
+</script>

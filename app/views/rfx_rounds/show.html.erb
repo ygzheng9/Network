@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rfx:</strong>
+  <%= @rfx_round.rfx.SN %>
+</p>
+
+<p>
+  <strong>Start dt:</strong>
+  <%= @rfx_round.start_dt %>
+</p>
+
+<p>
+  <strong>End dt:</strong>
+  <%= @rfx_round.end_dt %>
+</p>
+
+<%= link_to 'Edit', edit_rfx_rfx_round_path(@rfx, @rfx_round) %> |
+<%= link_to 'Back', rfx_rfx_rounds_path(@rfx) %>
