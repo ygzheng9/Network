@@ -2,4 +2,7 @@
 
 <%= render 'form' %>
 
-<%= link_to '询价单清单', rfxes_path %>
+<%= link_to '选择寻源方式', select_sourcing_type_path(@rfx), class: "btn btn-default" %>
+<%= link_to '轮次明细', rfx_rfx_rounds_path(@rfx), class: "btn btn-default"  %>
+<%= link_to '询价单清单', rfxes_path, class: "btn btn-default"  %>
+

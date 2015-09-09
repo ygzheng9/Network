@@ -211,3 +211,61 @@ ReactRailsUJS.mountComponents();
 1. edit multiple records at once  -- field_for
     + user
     + rfx_round
+2. github
+    1. create repo on github
+    2. clone to local
+    3. copy/create files to local
+    4. git add/commit/push
+
+rails g migration add_status_to_rfx status:int
+
+rails g model vendor_rfx_items vendor_id:integer rfx_item_id:integer unit_price:float
+
+rails g migration add_rfx_id_to_vendor_rfx_item rfx_id:int
+
+rails g migration add_title_to_rfx title:string price_visibility:int
+
+rails g scaffold survey name:string
+rails g scaffold question content:string survey_id:integer
+rails g model answer content:string question_id:integer
+
+
+# 20150907
+1. how to delete self?
+    1. link_to obj method: :delete
+    2. obj.destroy, redirect_to
+
+2. how to delete children?
+    1. nested form --> fields_for, render
+    2. hidden_field (input hidden), link, #
+    3. js to
+        1. set hidden_field=1: $(this).prev('input[type=hidden]').val('1')
+        2. hide self: $(this).closest('fieldset').hide()
+    4. all above are in the client side, need submit to server.
+        1. accepts_nested_attributes_for  :questions, allow_destroy: true
+        2. questions_attributes: [:id, :content, :_destroy]
+
+3. reverse_merge: 类似于有了就不要update，没有再update；
+
+4. content_for：动态替换sidebar内容
+    1. 在layout中，just call <% content_for :side if current_user.nil? %>
+    2. 在view中，<% content_for :side do %> ... <% end %>
+
+5. HABTM, simple_form collection_check_box
+    0. 所有的可选项：<% Category.all.each do |category| %> ... <% end %>
+    1. 同一组，不同的value, check_box_tag "product[category_ids][]", category.id,
+    2. 有对应关系的打上勾，@product.category_ids.include?(category.id)
+    3. label也能选中，设置check_box和label的dom_id相同
+        1. check_box_tag id: dom_id(category)
+        2. <%= label_tag dom_id(category), category.name %>
+    4. 对多的关系可以直接设置：p.category_ids = [1,2]
+
+
+# 2015/09/08
+
+1. user-role mapping
+rails g scaffold role code:string description:string
+rails g model user_role_mapping user_id:integer role_id:integer
+r = Role.find(1)
+r.user_ids = [1,2]
+params.require(:role).permit(..., :role_ids => [])

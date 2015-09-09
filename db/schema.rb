@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150818130223) do
+ActiveRecord::Schema.define(version: 20150909052743) do
+
+  create_table "answers", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "question_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.string   "comment_type"
@@ -32,6 +39,13 @@ ActiveRecord::Schema.define(version: 20150818130223) do
   create_table "plants", force: :cascade do |t|
     t.string   "code"
     t.string   "desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "survey_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -75,8 +89,18 @@ ActiveRecord::Schema.define(version: 20150818130223) do
     t.date     "begin_dt"
     t.date     "end_dt"
     t.integer  "sourcing_org_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "status"
+    t.string   "title"
+    t.integer  "price_visibility"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "code"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "sourcing_orgs", force: :cascade do |t|
@@ -93,12 +117,34 @@ ActiveRecord::Schema.define(version: 20150818130223) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "surveys", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_role_mappings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "display_name"
     t.string   "email"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "vendor_rfx_items", force: :cascade do |t|
+    t.integer  "vendor_id"
+    t.integer  "rfx_item_id"
+    t.float    "unit_price"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "rfx_id"
   end
 
   create_table "vendors", force: :cascade do |t|

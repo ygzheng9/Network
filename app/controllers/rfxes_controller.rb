@@ -92,7 +92,7 @@ class RfxesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rfx_params
-      params.require(:rfx).permit(:SN, :begin_dt, :end_dt, :sourcing_org_id)
+      params.require(:rfx).permit(:SN, :begin_dt, :end_dt, :sourcing_org_id, :title, :price_visibility)
     end
 
 end

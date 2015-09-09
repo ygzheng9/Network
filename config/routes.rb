@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-
+  resources :roles
+  resources :questions
+  resources :surveys
   get 'users/all_edit' => 'users#edit_all', :as => :users_edit_all, :via => :get
   put 'users/all' => 'users#update_all', :as => :users_update_all, :via => :put
 
@@ -20,6 +22,13 @@ Rails.application.routes.draw do
   get 'start_point/contact'
   root 'start_point#index'
 
+  get '/vendors/set/select' => 'vendors#select_current'
+  put '/vendors/set/change' => 'vendors#change_current'
+  get '/rfx_vendors/get_visible_rfx' => 'rfx_vendor#get_visible_rfx'
+
+  get '/rfx_vendors/open_rfx_items/:id' => 'rfx_vendor#open_rfx_items', as: :rfx_vendors_open_rfx_items
+  put '/rfx_vendors/bid_rfx_items' => 'rfx_vendor#bid_rfx_items'
+
   resources :vendors
   # match "/rfxes/:rfx_id/rfx_items", :to => "rfx_items#index_nested", via: :get, as: :items_by_rfx
 
@@ -27,6 +36,7 @@ Rails.application.routes.draw do
 
   get 'rfx_rounds/all_edit' => 'rfx_rounds#edit_all'
   put 'rfx_rounds/all' => 'rfx_rounds#update_all'
+
 
   resources :rfxes do
     resources :rfx_items

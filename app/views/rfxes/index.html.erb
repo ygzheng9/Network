@@ -9,7 +9,7 @@
       <th>开始时间</th>
       <th>结束时间</th>
       <th>采购分组</th>
-      <th colspan="6"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -24,8 +24,7 @@
         <td><%= link_to '修改', edit_rfx_path(rfx) %></td>
         <td><%= link_to '删除', rfx, method: :delete, data: { confirm: '确实要删除该询价信息吗?' } %></td>
         <td><%= link_to '行明细', rfx_rfx_items_path(rfx) %></td>
-        <td><%= link_to '轮次明细', rfx_rfx_rounds_path(rfx) %></td>
-        <td><%= link_to '选择寻源方式', select_sourcing_type_path(rfx) %></td>
+
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +33,5 @@
 <br>
 
 <%= link_to '新建询价单', new_rfx_path, class: "btn btn-default" %>
+<%= link_to '上载询价单', "#", class: "btn btn-default" %>
 

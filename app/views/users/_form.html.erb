@@ -5,6 +5,7 @@
     <%= f.input :name, label: "登录名" %>
     <%= f.input :display_name, label: "姓名" %>
     <%= f.input :email, label: "邮箱" %>
+    <%= f.association :roles, as: :check_boxes, label: "角色",label_method: :full_name, value_method: :id, include_blank:false %>
   </div>
 
   <div class="form-actions">

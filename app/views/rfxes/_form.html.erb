@@ -3,13 +3,17 @@
 
   <div class="form-inputs">
     <%= f.input :SN, label: "询价单号" %>
+    <%= f.input :title, label: "询价单描述" %>
     <%= f.input :begin_dt, as: :string, label: "开始日期", input_html: { readonly: true, class: :datepicker } %>
     <%= f.input :end_dt, as: :string, label: "结束日期", input_html: { readonly: true, class: :datepicker } %>
     <%= f.association :sourcing_org, label: "寻源组", prompt: "请选择分组", label_method: :full_name, value_method: :id, include_blank: false %>
+    <div class="radio">
+      <%= f.collection_radio_buttons :price_visibility, [[0, "全可见"], [1, "条件可见"], [2, "不可见"]], :first, :last %>
+    </div>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, "确  定" %>
   </div>
 <% end %>
 

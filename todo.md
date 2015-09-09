@@ -55,8 +55,6 @@
 
     宽容比自由重要
 
-
-
 2. in react
     + inital data: can passed in as props.
     + state data: during interaction handled by react.
@@ -132,3 +130,21 @@ render: function() {
 1. simple_form_for
   1. button txt; f.button 的显示；
   2. new, update: Update User, Create User 的生成逻辑；
+
+
+1. 我要报价
+  1. 清单：公开，或者是指定供应商；
+  2. 点击清单，对每一行项目报价；保存 | 询价单清单；
+
+1. 根据当前不同的用户，显示不同的菜单
+  1. 供应商：首页，我要报价，帮助
+  2. 采购放：首页，发布询价信息，查看报价信息，帮助
+  3. 系统管理员
+
+
+1. RFX:
+  1. 确定寻源方式，确定供应商；
+  2. 供应商：保存（不正式），提交（正式，可多次）；
+  3. 公开，半公开：采购方再结束时间前能否看价格；
+  3.1 全公开：供应商间看总排名；
+  4. 开标时间；

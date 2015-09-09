@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>报价</h1>
+
+<%= @rfx.SN %> - <%= @vendor.full_name unless @vendor.nil? %>
+
+<%= form_tag rfx_vendors_bid_rfx_items_path, method: :PUT do %>
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>采购单位</th>
+      <th>物料</th>
+      <th>数量</th>
+      <th>要求到货时间</th>
+      <th>单价</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vendor_rfx_items.each do |item| %>
+      <%= fields_for "item[]", item do |f| %>
+        <tr>
+          <td><%= item.rfx_item.plant.full_name %></td>
+          <td><%= item.rfx_item.material.full_name %></td>
+          <td><%= item.rfx_item.quantity %></td>
+          <td><%= item.rfx_item.required_dt %></td>
+          <td><%= f.text_field :unit_price %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= submit_tag '提交报价' %>
+
+<% end %>
+<br>
+
+
+<%= link_to '返回询价单列表', rfx_vendors_get_visible_rfx_path %>

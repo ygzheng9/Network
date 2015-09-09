@@ -61,6 +61,20 @@ class VendorsController < ApplicationController
     end
   end
 
+  def select_current
+    vendor_id = session[:vendor_id] unless session[:vendor_id].nil?
+    @vendor = Vendor.find(vendor_id) unless vendor_id.nil?
+    @vendors = Vendor.all
+  end
+
+  def change_current
+    # console
+    vendor_id = params[:vendor_id]
+    session[:vendor_id] = vendor_id
+
+    redirect_to vendors_set_select_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_vendor
