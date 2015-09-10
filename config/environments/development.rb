@@ -41,4 +41,6 @@ Rails.application.configure do
 
   config.react.variant = :development
   config.react.addons = true # defaults to false
+
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end

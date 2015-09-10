@@ -269,3 +269,15 @@ rails g model user_role_mapping user_id:integer role_id:integer
 r = Role.find(1)
 r.user_ids = [1,2]
 params.require(:role).permit(..., :role_ids => [])
+
+# 2015/09/09
+rails generate paperclip user avatar
+
+1. paperclip:
+    1. install;
+    2. setup;
+    3. rails generate paperclip user avatar
+
+2. make upload button beautiful: use button to trigger the real file_input
+
+3. preview uploaded file: using js
